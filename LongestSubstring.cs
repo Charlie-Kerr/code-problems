@@ -15,7 +15,7 @@ namespace CodeProblems
         public DateOnly Date => new DateOnly(2024, 10, 04);
         public class Solution()
         {
-            public int LengthOfLongestSubstring(string s)
+            public static int LengthOfLongestSubstring(string s)
             {
                 int longestLength = 0;
                 int count = 0;
@@ -46,10 +46,30 @@ namespace CodeProblems
         public class Tests() 
         {
             [TestMethod]
-            public void test()
+            public void case1()
             {
-                
+                string s = "abcabcbb";
+                int expected = 3;
+                int actual = LongestSubstring.Solution.LengthOfLongestSubstring(s);
+                Assert.AreEqual(expected, actual);
             }
+            [TestMethod]
+            public void case2()
+            {
+                string s = "bbbbb";
+                int expected = 1;
+                int actual = LongestSubstring.Solution.LengthOfLongestSubstring(s);
+                Assert.AreEqual(expected, actual);
+            }
+            [TestMethod]
+            public void case3()
+            {
+                string s = "pwwkew";
+                int expected = 3;
+                int actual = LongestSubstring.Solution.LengthOfLongestSubstring(s);
+                Assert.AreEqual(expected, actual);
+            }
+
         }
     }
 }
