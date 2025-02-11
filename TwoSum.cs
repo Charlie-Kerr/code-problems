@@ -37,6 +37,7 @@ namespace CodeProblems
             [TestMethod]
             public void test()
             {
+                Assert.IsTrue(new int[] { 0, 1 }.SequenceEqual(TwoSum.Solution.TwoSum(new int[] { 3 , 4 , 5 , 6 }, 7)));
                 Assert.IsTrue(new int[] { 0, 2 }.SequenceEqual(TwoSum.Solution.TwoSum(new int[] { 4, 5, 6 }, 10)));
             }
         }
