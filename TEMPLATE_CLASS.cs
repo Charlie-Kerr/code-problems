@@ -10,8 +10,9 @@ namespace CodeProblems
     public class TEMPLATE_CLASS : ICodeProblem
     {
         public Type Type => Type.EASY; //REPLACE TYPE
-        public List<string> tags => new List<string> { " " }; //ADD TAGS
+        public List<string> Tags => new List<string> { " " }; //ADD TAGS
         public string? Link => " "; //ADD LINK
+        public string? Description => " "; //ADD DESCRIPTION
         public DateOnly Date => new DateOnly(2000, 01, 01); //REPLACE DATE
         public class Solution()
         {

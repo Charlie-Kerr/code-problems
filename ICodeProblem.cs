@@ -18,8 +18,9 @@ namespace CodeProblems
     {
         //any class implementing ICodeProblem will need to be public NOT internal in order for Tests to run
         public Type Type { get; }
-        public List<string> tags { get; }
+        public List<string> Tags { get; }
         public string? Link { get; }
+        public string? Description { get; }
         public DateOnly Date { get; }
         class Solution { }
         [TestClass]

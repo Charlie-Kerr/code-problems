@@ -15,12 +15,13 @@ namespace CodeProblems
         {
             List<ICodeProblem> problems = getProblems();
             string input = "";
+            int problemNumber = 0;
             bool flag = false;
             Console.WriteLine("Welcome to my Leetcode/Neetcode/Hackerank repository project." +
                 "\nYou can see all of the problems I have solved in C# and the test cases that were used to challenge each solution." +
                 "\nYou can run and produce the test output of any of the problems by typing the number associated with a problem below." +
                 "\nYou can quit the application using q.\n");
-            while (input != "q") 
+            while (input != "q")
             {
                 flag = false;
                 for (int i = 0; i < problems.Count; i++)
@@ -28,19 +29,21 @@ namespace CodeProblems
                     Console.WriteLine($"{i + 1}. {problems[i].GetType().Name}");
                 }
                 Console.WriteLine("\nSelect a problem:");
-                while (!flag) 
+                while (!flag)
                 {
                     input = Console.ReadLine().ToString();
                     flag = checkInput(input, problems.Count);
                 }
-                if(input == "q") break;
-                RunTests(problems[int.Parse(input) - 1]);
+                if (input == "q") break;
+                problemNumber = int.Parse(input) - 1;
+                Console.WriteLine(problemToString(problems[problemNumber]));
+                runTests(problems[problemNumber]);
                 Console.WriteLine("\nPress any key to continue or q to quit");
                 input = Console.ReadLine();
             }
         }
 
-        static bool checkInput(string input, int MAXINT) 
+        static bool checkInput(string input, int MAXINT)
         {
             int value;
             if (input == "q") return true;
@@ -50,7 +53,7 @@ namespace CodeProblems
                 if (value >= 1 && value <= MAXINT) return true;
                 return false;
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 Console.WriteLine("Input was not in the right format please try again.");
                 return false;
@@ -81,7 +84,7 @@ namespace CodeProblems
             return problems;
         }
 
-        static void RunTests(ICodeProblem problem)
+        static void runTests(ICodeProblem problem)
         {
             // Get the nested Tests class
             var testClassType = problem.GetType().GetNestedType("Tests");
@@ -96,7 +99,7 @@ namespace CodeProblems
             var testClassInstance = Activator.CreateInstance(testClassType);
 
             // Run each test method
-            foreach (var method in typeof(TwoSum.Tests).GetMethods())
+            foreach (var method in testClassType.GetMethods())
             {
                 if (method.GetCustomAttributes(typeof(TestMethodAttribute), false).Length > 0)
                 {
@@ -107,10 +110,21 @@ namespace CodeProblems
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine($"{method.Name} failed: {e.Message}");
+                        Console.WriteLine($"{problem}.{method.Name} failed: {e.Message}");
                     }
                 }
             }
+        }
+
+        static string problemToString(ICodeProblem problem)
+        {
+            StringBuilder result = new StringBuilder();
+            result.Append($"Problem: {problem.GetType().Name}\n");
+            result.Append($"Difficulty: {problem.Type.ToString()}\n");
+            result.Append($"Completed on: {problem.Date.ToString()}\n");
+            result.Append($"Tags: {string.Join(", ", problem.Tags)}\n");
+            result.Append($"Description: {problem.Description}\n");
+            return result.ToString();
         }
     }
 }
