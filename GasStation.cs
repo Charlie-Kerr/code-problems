@@ -9,7 +9,7 @@ namespace CodeProblems
     public class GasStation : ICodeProblem
     {
         public Type Type => Type.MEDIUM;
-        public List<string> Tags => new List<string> { "Array, Greedy" };
+        public List<string> Tags => new List<string> { "Array", "Greedy" };
         public string? Link => "https://leetcode.com/problems/gas-station/description/";
         public string? Description => "There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i]." +
             "\nYou have a car with an unlimited gas tank and it costs cost[i] of gas to travel from the ith station to its next (i + 1)th station. " +
