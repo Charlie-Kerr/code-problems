@@ -17,7 +17,7 @@ namespace CodeProblems
             "\nEach of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition." +
             "\nNote:\nA Sudoku board (partially filled) could be valid but is not necessarily solvable." +
             "\nOnly the filled cells need to be validated according to the mentioned rules.";
-        public DateOnly Date => new DateOnly(2025, 02, 013);
+        public DateOnly Date => new DateOnly(2025, 02, 015);
         public class Solution()
         {
             public static bool IsValidSudoku(char[][] board)
