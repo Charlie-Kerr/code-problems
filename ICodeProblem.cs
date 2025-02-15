@@ -7,13 +7,6 @@ using System.Threading.Tasks;
 namespace CodeProblems
 {
     public enum Type { EASY, MEDIUM, HARD }
-    public class JSONReader
-    {
-        public static List<string> Read(string path)
-        {
-            return new List<string>(); //add JSON reader here
-        }
-    }
     internal interface ICodeProblem
     {
         //any class implementing ICodeProblem will need to be public NOT internal in order for Tests to run
