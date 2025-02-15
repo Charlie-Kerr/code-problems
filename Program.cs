@@ -60,7 +60,7 @@ namespace CodeProblems
             }
         }
 
-        static List<ICodeProblem> getProblems()
+        public static List<ICodeProblem> getProblems()
         {
             // Find all classes that implement ICodeProblem
             var problemTypes = Assembly.GetExecutingAssembly().GetTypes()
