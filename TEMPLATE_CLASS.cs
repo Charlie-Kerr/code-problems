@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CodeProblems
 {
-    //Copy this class and replace TEMPLATE_CLASS with the name of the problem
+    //Copy this class and rename TEMPLATE_CLASS with the name of the problem
+    //Use Shift + Enter: do not rename template class once copied!!
     public class TEMPLATE_CLASS : ICodeProblem
     {
         public Type Type => Type.EASY; //REPLACE TYPE
