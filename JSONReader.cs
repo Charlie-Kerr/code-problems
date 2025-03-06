@@ -20,6 +20,11 @@ namespace CodeProblems
             List<string> tags = readFile<List<string>>(path);
             return tags;
         }
+        public static Dictionary<string, List<ICodeProblem>> readTagDictionary(string path)
+        {
+            Dictionary<string, List<ICodeProblem>> tagDictionary = readFile<Dictionary<string, List<ICodeProblem>>>(path);
+            return tagDictionary;
+        }
 
 
         //So we want to read in the list of tags from our JSON file and output a JSON File dictionary? detailing if each tag has a problem assigned to it

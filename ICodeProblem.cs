@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CodeProblems
 {
     public enum Type { EASY, MEDIUM, HARD }
-    internal interface ICodeProblem
+    public interface ICodeProblem
     {
         //any class implementing ICodeProblem will need to be public NOT internal in order for Tests to run
         public Type Type { get; }
